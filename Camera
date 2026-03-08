@@ -1,0 +1,5 @@
+cd Desktop/io-probe
+python3 -m venv .venv
+source .venv/bin/activate
+pip install adafruit-circuitpython-bme280
+rpicam-still -o image.jpg
