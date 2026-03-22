@@ -1,0 +1,19 @@
+from flask import Flask, render_template
+import random # Replace with sensor libraries later
+app = Flask(__name__)
+def get_sensor_data():
+"""
+Galaxy Explorers: Replace these random numbers with your
+actual Raspberry Pi sensor reading code!
+"""
+return {
+"temp": round(random.uniform(20.0, 25.0), 1),
+"humidity": round(random.uniform(40.0, 60.0), 1),
+"pressure": round(random.uniform(1010, 1020), 1)
+}
+@app.route('/')
+def index():
+data = get_sensor_data()
+return render_template('index.html', **data)
+if __name__ == '__main__':
+app.run(host='0.0.0.0', port=5000, debug=True)
