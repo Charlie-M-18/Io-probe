@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mission to Io</title>
+    <meta http-equiv="refresh" content="10">
+    <style>
+        body { 
+            background-color: #1a0a00; /* Dark Volcanic Rock */
+            color: #ffcc00; 
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            border: 20px solid #e65100; /* Thick Lava Border */
+            margin: 0;
+            padding: 40px;
+        }
+        h1 { 
+            font-size: 5em; 
+            color: #ff3d00; 
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 4px 4px #5d1c00, 0 0 20px #ff3d00;
+        }
+        .mission-info {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #ffb18a;
+            line-height: 1.6;
+            border-bottom: 3px double #ff3d00;
+            padding-bottom: 20px;
+        }
+        .dashboard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .temp-display {
+            background: radial-gradient(circle, #ff3d00, #8d2400);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 10px solid #ffcc00;
+            box-shadow: 0 0 50px #ff3d00;
+        }
+        .temp-val { font-size: 4em; font-weight: bold; color: white; }
+        .label { font-size: 1.5em; color: #ffcc00; letter-spacing: 3px; font-weight: bold;}
+        
+        .camera-feed img {
+            width: 550px;
+            border: 8px solid #ffcc00;
+            box-shadow: 15px 15px 0px #5d1c00;
+            border-radius: 10px;
+        }
+        .status-bar {
+            margin-top: 50px;
+            font-size: 1.2em;
+            background: #ff3d00;
+            color: #1a0a00;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mission to Io</h1>
+    
+    <div class="mission-info">
+        <strong>OBJECTIVE:</strong> Galaxy Explorers Probe #1 is currently deployed to the surface of Io, 
+        Jupiter's most volcanic moon. We are monitoring extreme heat signatures and capturing 
+        visual data to locate active sulfur volcanoes and lava lakes.
+    </div>
+
+    <div class="dashboard">
+        <div class="temp-display">
+            <div class="label">HEAT LEVEL</div>
+            <div class="temp-val">{{ temp }}°C</div>
+        </div>
+
+        <div class="camera-feed">
+            <div class="label">LIVE SURFACE FEED</div>
+            <img src="{{ url_for('static', filename='io_image.jpg') }}?random=1" alt="Io Surface Photo">
+        </div>
+    </div>
+
+    <div class="status-bar">
+        PROBE STATUS: ACTIVE & TRANSMITTING | SCANNING FOR MAGMA
+    </div>
+
+</body>
+</html>
